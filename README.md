@@ -31,6 +31,42 @@
 
 ## Agent 自我改进与 RSI (Agent Self-Improvement & RSI)
 
+- **System-One RSI: Building Muscle Memory for Interactive Agents through Guided Practice**
+  - **作者**：Qingxu Fu, Xuanfa Jin, Ziqian Chen, Zhaoyang Liu, Bolin Ding
+  - **来源**：arXiv:2611.26007（v1，2026-11-19）
+  - **链接**：[arXiv:2611.26007](https://arxiv.org/abs/2611.26007) | [PDF](https://arxiv.org/pdf/2611.26007)
+  - **描述**：将高频在线内部 OODA 循环（由决策模型将视觉观测与任务问题映射为结构化判断，并由决策树在无需调用推理模型下转换为定时动作）与推理 agent 团队驱动的离线外部递归改进循环相结合，通过更新 prompt、决策树及参数将学得特征固化为外部“肌肉记忆”（muscle memory）。框架仅需少量真实回合，且无需专家演示、环境修改、沙盒或并行仿真。在 27B 决策模型上，贪吃蛇（Snake）平均得分由 1.30 升至 7.35；在所评估的《绝区零》（Zenless Zone Zero）场景中，完成时间中位数下降 8.4%；在所评估的《黑神话：悟空》（Black Myth: Wukong）战斗场景中，规避策略的平均存活时间达到静止对照的 11 倍，进攻策略胜率在所评估配置上由 0% 升至 66.7%。
+
+- **Think Offline, Act in Real Time: Self-Improving Visual Game Agents through Code**
+  - **作者**：Zipeng Qiu, Shusheng Xu, Jiale Li, Yukun Zhou, Chenyue Li, Wenshuang Li, Tongkai Yang, Binhang Yuan
+  - **来源**：arXiv:2611.24590（v1，2026-11-18）
+  - **链接**：[arXiv:2611.24590](https://arxiv.org/abs/2611.24590) | [PDF](https://arxiv.org/pdf/2611.24590) | [官方代码](https://github.com/TabibitoQZP/SIGame)
+  - **描述**：研究智能体在游戏持续运行且仅能观察屏幕的情况下，如何通过自身少量尝试在陌生实时视觉游戏中实现自我改进，对比了 model-as-policy（实时分块结合训练好的 2B 控制器）与 code-as-policy（模型在尝试间隙编写、测试和修改代码程序并在游戏时由程序执行动作）两种范式。在 170 个 GameWorld 任务中（每次运行最多进行 8 次 1 分钟执行），code-as-policy 达到 47.80% 的平均进度，显著优于训练控制器的 30.90%，并在全部 5 个游戏类别中均保持领先。
+
+- **BaseRSI: Recursive Self-Improvement of a Base Vision-Language Model via Training-Free Harness Internalization**
+  - **作者**：Mingda Zhang, Yuanhao Dong, Qiang Huang, Rui Qian, Yanjin Li, Zhenyu Liu, Xiao Huang, Zihao Yang, Jian Wang, Pinjia He, Xiaoying Tang
+  - **来源**：arXiv:2611.24578（v1，2026-11-18）
+  - **链接**：[arXiv:2611.24578](https://arxiv.org/abs/2611.24578) | [PDF](https://arxiv.org/pdf/2611.24578) | [官方代码](https://github.com/beita6969/BaseRSI)
+  - **描述**：提出递归 Harness 内化（Recursive Harness Internalization）框架 BaseRSI，使基座视觉语言模型在多轮自我响应中先优化自身 harness，再通过免训练（training-free）编辑将 harness 带来的增益直接写入自身权重。引入利用每层激活差异在低维子空间更新权重的 ReGap，以及通过回归将信号写入各块少量键值神经元的 ReKey，仅凭前向传播即可在单个检查点复合不同位置的编辑，在 10 个分布内及留出视觉推理基准上均提升了基座模型性能。
+
+- **Improve How You Improve: Recursive Policy Self-Improvement for Zero-Shot Open-Vocabulary Multi-Object Navigation**
+  - **作者**：Yang Li, Ziju Han, Aming WU, Zihao Zhang, Sijia Zhang, Yahong Han, Qinghua Hu
+  - **来源**：arXiv:2611.23774（v1，2026-11-18）
+  - **链接**：[arXiv:2611.23774](https://arxiv.org/abs/2611.23774) | [PDF](https://arxiv.org/pdf/2611.23774)
+  - **描述**：针对零样本开放词表多目标导航中问题诊断与规则修订机制通常由人工设计且保持固定的缺陷，提出递归策略自我改进框架 RPSI-Nav，同时优化导航程序及其自身的修订机制。该方法通过诊断搜索行为、在观测歧义时请求诊断视角以生成针对性导航规则，并将后续目标搜索的反馈反向关联至规则生成逻辑，从而动态改进故障诊断、观测获取与规则修订规划。
+
+- **Safe Personal RSI: Evaluating and Repairing Personal-Agent Updates**
+  - **作者**：Jiapeng Pei, Yuhang Yao, Sitan Liu, Hanxin Chen, Hao Li, Guogeng Li, Jiapei Liu, Ruijie Chen, Hongshan Lin, Yang Mo, Tianyu Shi, Shangding Gu
+  - **来源**：arXiv:2611.23651（v1，2026-11-18）
+  - **链接**：[arXiv:2611.23651](https://arxiv.org/abs/2611.23651) | [PDF](https://arxiv.org/pdf/2611.23651)
+  - **描述**：针对个人健康助手 Kicker 提出更新评估组件 Safe Personal RSI，在固定模型权重与运行代码的前提下将自我改进约束为 prompt 更新，通过测试候选与当前指令、复现失败用例、暂撤修改以指导修复，并在采纳前检查安全与任务表现（若无版本通过则保留原指令）。可执行基准包含 29 个邮件、日历、健康与市场用例，并另设权限复用、记忆和工具输出注入探针；在 3 个模型与两次刻意设计的高风险编辑上，该流程拒绝了 21 次更新尝试中的 20 次。修复确认中，一次获准的 GPT-5.6 Luna 修复将攻击违规率从 10.7% 降至 0%，并将安全任务完成率从 89.7% 提升至 100%；在更强攻击下，从 Qwen2.5-7B-Instruct 迁移到 Qwen3-14B 的修复将违规率从 69.0% 降至 17.9%，安全任务完成率从 19.5% 提升至 64.4%。
+
+- **GUARD: Stabilizing Recursive Self-Improvement with Regret Guidance**
+  - **作者**：Minghe Zhang, Xuetao Kang, Yifei Ming, Yanfei Chen, Han Yu, Yufan Zhuang, Chen-Yu Lee
+  - **来源**：arXiv:2611.23476（v1，2026-11-17）
+  - **链接**：[arXiv:2611.23476](https://arxiv.org/abs/2611.23476) | [PDF](https://arxiv.org/pdf/2611.23476)
+  - **描述**：针对冻结基座模型与可编辑 harness（prompts、skills、工具规则与记忆）的自主智能体，提出无需外部评分器的闭环持续 harness 演化框架 GUARD，将任务解耦为执行前自检并利用方向性遗憾（directional regret）引导更新。通过无评估器群体相对适应度筛选并行候选编辑，并利用 Soft-HURT 门控在增益大于退化时推进更新以保证门控缓冲区的非退化，在记忆、技能演化和持续任务流等多项基准上避免了灾难性遗忘与记忆污染，并显著降低了部署 token 开销。
+
 - **Do LLM Agents Still Need to Be Told How to Self-Improve?**
   - **作者**：Shobhita Sundaram, Cansu Sancaktar, Phillip Isola
   - **来源**：arXiv:2611.23219（v1，2026-11-17）
@@ -51,7 +87,7 @@
 
 - **Think Once, Act Fast: Cost-Effective Recursive Self-Improvement for Decision Model Harness**
   - **作者**：Siqi Lai, Haitao Li, Hao Liu
-  - **来源**：arXiv:2611.22432（v1，2026-11-17）
+  - **来源**：arXiv:2611.22432（v3，2026-11-19）
   - **链接**：[arXiv:2611.22432](https://arxiv.org/abs/2611.22432) | [PDF](https://arxiv.org/pdf/2611.22432) | [官方代码](https://github.com/usail-hkust/JevRSI)
   - **描述**：提出 JevRSI，通过 System-1/System-2 协作将 LLM 推理沉淀为可迁移的决策支持：低延迟的 Jev 风格 System-1 负责动作选择，异步 System-2 LLM 递归改进包含流程、状态记忆与世界模型的模块化 harness，并按相关性与历史效用检索模块。实验显示其在保持低延迟的同时匹配或超过 LLM agent，且随着 harness 演化，System-2 干预逐渐减少。
 
@@ -85,11 +121,23 @@
   - **链接**：[arXiv:2611.18856](https://arxiv.org/abs/2611.18856) | [PDF](https://arxiv.org/pdf/2611.18856)
   - **描述**：研究 Continual Recursive Self-Improvement (CRSI)，即在更换兼容 benchmark 或策略模型后如何延续已有 harness 优化。提出面向 harness 优化器（而非任务策略）的 Self-Improvement Memory (SIM)，按反复出现的 harness 问题归组编辑，并记录理由、预测/观测结果与评估上下文。在四个领域的跨数据集与跨模型延续中优于仅保留 harness 或仅保留根因的延续；在编程任务的配对延续上平均高出 2.36 分。
 
+- **ESI: An Embodied Self-Improvement Flywheel for LLM-VLA Agents**
+  - **作者**：Yundi Cai, Zihan Wang, Chenxi Han, Yi Cheng, Houde Liu, Zilei Wang
+  - **来源**：arXiv:2611.18176（v2，2026-11-16）
+  - **链接**：[arXiv:2611.18176](https://arxiv.org/abs/2611.18176) | [PDF](https://arxiv.org/pdf/2611.18176) | [官方代码](https://github.com/ZERITH-ZLab/ESI)
+  - **描述**：提出面向模块化 LLM-VLA 智能体的具身自我改进飞轮 ESI（Embodied Self-Improvement），将模块化智能体作为后训练单元，通过环境交互反复协同优化 LLM 提示词、共享技能接口与 VLA 参数并联合重新部署。利用 LLM 子任务决策提供语义监督，并以有效纠偏及后续学生模型执行提供动作级监督，在 10 个选定的 RoboDojo 任务上取得了 62.03 的平均得分与 49.41% 的平均成功率。
+
 - **Experience-Handoff Reinforcement Learning for Recursive Self-Improvement**
   - **作者**：Doyoung Kim, Byeongguk Jeon, Kailin Zhang, Sherry Yang
   - **来源**：arXiv:2611.16409（v1，2026-11-12）
   - **链接**：[arXiv:2611.16409](https://arxiv.org/abs/2611.16409) | [PDF](https://arxiv.org/pdf/2611.16409) | [官方代码](https://github.com/doyoungkim-ml/ehrl)
   - **描述**：针对仅用标量奖励做 RL 会丢弃环境细粒度信息、而现有 harness 的经验交接产物（如 playbook）本身未被学习的问题，提出 Experience-Handoff RL (EHRL)：在固定 Agentic Context Engineering (ACE) harness 下训练同一模型同时担任行动、反思与策划，并以对未来 actor rollout 的下游效果评估交接产物。结果表明，agent 训练应同时优化当前动作与未来 rollout 将继承的模型书写经验。
+
+- **Evidence-Governed Adoption of Self-Generated Updates in Autonomous AI Agents**
+  - **作者**：Subodh Lonkar
+  - **来源**：arXiv:2611.16378（v1，2026-11-12）
+  - **链接**：[arXiv:2611.16378](https://arxiv.org/abs/2611.16378) | [PDF](https://arxiv.org/pdf/2611.16378)
+  - **描述**：提出治理自主智能体自我生成修改（prompts、记忆、工具、工作流与策略）采纳决策的证据治理演化框架 EGE（Evidence-Governed Evolution），将候选生成与确认采纳解耦，在新鲜配对审计上评估冻结候选，要求在预先指定的主目标上取得有意义改进，并以相对参照（reference）的非劣效检验保护已声明能力，再在有界金丝雀部署前施加治理约束。它为可数的自适应生成候选序列建立了评估器校准的同时下界（结合逐候选 Hoeffding 界，以及比较操作评估器与预定参照程序的独立校准样本），并通过桥接测试形式化参照替换，推导出沿版本化参照谱系的累积退化界。
 
 - **When Should Agents Remember? Falsification-Gated Self-Evolution for LLM Agents**
   - **作者**：Runxuan Tang, Haoyu Gao, Yuyan Ding, Junyi Yao, Zihao Zheng, Zecheng Sheng, Liwei Hou
@@ -127,19 +175,49 @@
   - **链接**：[arXiv:2610.36826](https://arxiv.org/abs/2610.36826) | [PDF](https://arxiv.org/pdf/2610.36826)
   - **描述**：针对持续自我改进中评估标准（rubric）相对静态导致难以应对智能体演化过程中弱点转移的问题，提出 rubric 与 harness 协同演化框架 RuHarness；通过从执行轨迹中动态发现与重估行为准则以优先定位未解决的弱点并引导针对性 harness 更新，在多样化智能体任务上（尤其是未见测试集）显著优于传统 harness 演化 baseline 并实现了更稳健的持续改进。
 
+- **AdaRSI: On-Demand Recursive Self-Improvement for Embodied Agents**
+  - **作者**：Peidong Wang, Ying Chang, Zhiming Ma, Lirong Che, Zihao Liu, Xiaocui Yang, Shi Feng, Daqi Liu, Yuzhe Yang, Xu Cao, Chuang Wang, Jian Su, Daling Wang
+  - **来源**：arXiv:2610.20474（v2，2026-11-17）
+  - **链接**：[arXiv:2610.20474](https://arxiv.org/abs/2610.20474) | [PDF](https://arxiv.org/pdf/2610.20474)
+  - **描述**：提出面向具身智能体的按需递归自我改进框架 AdaRSI：由代码 agent 先优化工具与流程，针对测试替代指令后仍不可靠的子步骤自主采集演示并利用临时微调探针验证效用，进而跨任务汇总数据训练出协同执行的专用 VLA。在 RoboCasa365 未见复合任务上成功率由 4.6% 升至 13.3%，在扰动后的 LIBERO-Pro 2.0 任务上由 32.9% 升至 49.1%；在 RoboCasa365 的 Composite-Unseen 子集上，其成功率高于适配每一个操作子步骤的做法，同时只使用了 34% 的 GPU 时间和 36% 的演示数据。在真实机器人上，该智能体可自主采集演示并适配执行器以回收倒伏瓶子，从而提升任务完成表现。
+
 - **PluginRSI: Recursive Improvement of Agent Harnesses with Reusable Plugins**
   - **作者**：Yaorui Shi, Yuchun Miao, Yuxin Chen, Jiayuan Zhang, Yueqing Sun, Xierui Song, Xiang Wang, An Zhang
   - **来源**：arXiv:2609.32423（v2，2026-10-18）
   - **链接**：[arXiv:2609.32423](https://arxiv.org/abs/2609.32423) | [PDF](https://arxiv.org/pdf/2609.32423) | [官方代码](https://github.com/syr-cn/PluginRSI) | [项目页](https://syr-cn.github.io/PluginRSI/)
   - **描述**：针对整套程序级搜索优化 harness 导致各组件机制难以解耦和复用的问题，提出将 harness 模块化为可复用插件集合的演化框架 PluginRSI；通过独立优化各个原子化插件并沉淀至共享库中以便后续迭代重组，不仅在软件工程与命令行等任务上优于现有基线，且演化出的插件库能直接迁移至其他模型并加速未见任务的优化收敛。
 
+- **Designer-RSI: Evolving Procedural Memory for Graphic Design Agent**
+  - **作者**：Hongyang Du, Lan Yan, Christian Flores, Asim Kadav
+  - **来源**：arXiv:2609.22086（v2，2026-11-18）
+  - **链接**：[arXiv:2609.22086](https://arxiv.org/abs/2609.22086) | [PDF](https://arxiv.org/pdf/2609.22086)
+  - **描述**：针对调用逾 230 种光栅、矢量与排版工具的平面设计智能体，在冻结基座模型权重下从无标注设计轨迹中演化模块化 SKILL.md 技能库，将拓宽（widening，填补常发能力缺口）与深化（deepening，对比成败运行修订失效技能）相结合，并通过帕累托风格的配对回放门控确保更新无局部退化。在留出产品需求、8 个外部基准及两款基座模型上，基于实际交互流量的演化将执行成功率提升至高达 99.8%，并对基础智能体取得高达 67.6% 的盲测胜率，消融实验进一步证实了技能获取与修订的高度协同性。
+
+- **Meta$^n$: Recursive Self-Improvement through Emergent Depth**
+  - **作者**：Zae Myung Kim, Young-Jun Lee, Seungyeon Jwa, Dongyeop Kang
+  - **来源**：arXiv:2608.24735（v2，2026-11-18）
+  - **链接**：[arXiv:2608.24735](https://arxiv.org/abs/2608.24735) | [PDF](https://arxiv.org/pdf/2608.24735) | [官方代码](https://github.com/minnesotanlp/meta-n)
+  - **描述**：针对多数自我改进系统仅优化答案或固定元层级（meta-level）的问题，提出保持元操作 $\Omega$ 固定并对其输入进行递归的 Meta$^n$，通过反复作用于自身产物，读取下层求解栈的轨迹与代码，并将下一层生成为策略性预处理与可调用 helper 库。其递归深度由收敛性自适应决定并利用演化归档搜索层链，在两款基座模型上的 8 个基准族中均超越先前的自我改进智能体（在 ARC-AGI-2 上是唯一得分大于零的方法），且随着层深增加自然涌现出不同的分工角色。
+
 ## 评测与基准 (Benchmarks & Evaluations)
+
+- **RSIBench-Infra: Can Agents Optimize Their Own Training and Inference Infrastructure at Production Scale?**
+  - **作者**：Hanlin Wu, Yifei Wang, Zhicheng Cai, Huan-ang Gao, Wei-Ying Ma, Ya-Qin Zhang, Jingjing Liu, Hao Zhou
+  - **来源**：arXiv:2611.24395（v1，2026-11-18）
+  - **链接**：[arXiv:2611.24395](https://arxiv.org/abs/2611.24395) | [PDF](https://arxiv.org/pdf/2611.24395) | [项目页](https://rsibench-infra.github.io)
+  - **描述**：提出评估智能体能否在生产规模下优化自身训练与推理基础设施的基准 RSIBench-Infra，包含 20 项跨模型族与模态的训练与推理任务，部署规模可达 NVIDIA GPU 与昇腾（Ascend）NPU 上的 32 个加速器。智能体从官方基线出发修改引擎、算子内核（kernel）及指令层软件栈，并通过 OCI 镜像层协议实现可复现部署；在严格质量约束下，全部任务结果中有 66.2% 获得了超 1.10 倍的经核验加速比，揭示了当前智能体具备优化生产基础设施的能力，但将局部优化转化为端到端收益仍具挑战。
 
 - **RSI-PDEbench: A Benchmark for Self-Improving Agents in PDE Solving**
   - **作者**：Binghang Lu, Lang Cao, Changhong Mou, Yige Sun, Cindy Xiangrui Kong, Zheyuan Deng, Tian Yuan, Bing Hu, Runyu Zhang, Na Lu, Guang Lin
   - **来源**：arXiv:2611.14949（v1，2026-11-11）
   - **链接**：[arXiv:2611.14949](https://arxiv.org/abs/2611.14949) | [PDF](https://arxiv.org/pdf/2611.14949) | [项目页](https://jeremylu916.github.io/RSI-PDE/)
   - **描述**：提出面向自我改进智能体求解 PDE 的基准 RSI-PDEbench，包含 1,001 个案例、42 个方程模板（含分数阶 PDE），并设置 Full、Noisy 与 Hard-OOD 三种评测。智能体需从 256 个解样本中识别方程并编写求解器，在固定预算的自我改进循环中利用反馈，最终以从未见过的 hidden test split 评分。
+
+- **Continual-ARC: Measuring Skill Acquisition over a Working Lifetime**
+  - **作者**：Daniel Lenton, Yusha Arif, Haris Mahmood
+  - **来源**：arXiv:2611.14505（v3，2026-11-15）
+  - **链接**：[arXiv:2611.14505](https://arxiv.org/abs/2611.14505) | [PDF](https://arxiv.org/pdf/2611.14505) | [官方代码](https://github.com/unifyai/continual-arc) | [项目页](https://continual-arc.unify.ai)
+  - **描述**：基于三个版本的 ARC-AGI 构建终身数据流基准 Continual-ARC，在统一尺度下对比智能体 harness 与测试时基于参数/权重的持续学习（continual learning），通过在交替出现的休眠任务与新任务实例中限制反馈预算，并在数据流结束后评估冻结模型的记忆与泛化能力。在 Qwen3.5-9B 和 GLM-5.3 Flash 等模型上的实验表明，harness 的持久化（persistence）若缺乏显式专家指导通常无法改善记忆，且多数基于 harness 的方法学到的知识甚至低于仅缓存各任务演示数据的基准下限。
 
 - **Flex-RSI: Benchmarking Recursive Self-Improvement of Frontier Agents**
   - **作者**：Jingdong Zhang, Jionghao Wang, Zhengming Yu, Yancheng Cai, Wei Chow, Chris Choy, Zhiyang Dou, Hang Hua, Jiachen Li, Zhixuan Liu, Chen Wang, Songlin Wei, Siyuan Yang, Yu Yuan, Xiaohang Zhan, Yucheng Zhang, Shuhong Zheng, Xin Li, Lingjie Liu, Wojciech Matusik, Zhengzhong Tu, Wenping Wang
